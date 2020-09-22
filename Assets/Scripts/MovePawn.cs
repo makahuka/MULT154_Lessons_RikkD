@@ -1,35 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.Profiling;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class PlayerMovement : NetworkBehaviour
+public class MovePawn : MonoBehaviour
 {
     private Rigidbody rbPlayer;
     private Vector3 direction = Vector3.zero;
     public float speed = 10.0f;
-    public GameObject[] spawnPoints = null;
+    //public GameObject[] spawnPoints = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(!isLocalPlayer)
+        /*if (!isLocalPlayer)
         {
             return;
-        }
+        }*/
 
         rbPlayer = GetComponent<Rigidbody>();
-        spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
+        //spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
 
     }
 
     private void Update()
     {
-        if (!isLocalPlayer)
+        /*if (!isLocalPlayer)
         {
             return;
-        }
+        }*/
 
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
@@ -40,35 +38,35 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!isLocalPlayer)
+        /*if (!isLocalPlayer)
         {
             return;
-        }
+        }*/
 
         rbPlayer.AddForce(direction * speed, ForceMode.Force);
 
-        if(transform.position.z > -16)
+        if (transform.position.z > -16)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -16);
         }
-        else if(transform.position.z < -40)
+        else if (transform.position.z < -40)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -40);
         }
-        else if (transform.position.x > 55)
+        else if (transform.position.x > 60)
         {
-            transform.position = new Vector3(55, transform.position.y, transform.position.z);
+            transform.position = new Vector3(60, transform.position.y, transform.position.z);
         }
-        else if (transform.position.x < -50)
+        else if (transform.position.x < -60)
         {
-            transform.position = new Vector3(-50, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-60, transform.position.y, transform.position.z);
         }
     }
 
-    private void Respawn()
+    /*private void Respawn()
     {
         int index = 0;
-        while(Physics.CheckBox(spawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
+        while (Physics.CheckBox(spawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
         {
             index++;
         }
@@ -86,7 +84,5 @@ public class PlayerMovement : NetworkBehaviour
         {
             Respawn();
         }
-    }
-
-
+    }*/
 }

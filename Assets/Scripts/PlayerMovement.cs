@@ -48,13 +48,6 @@ public class PlayerMovement : NetworkBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(5, 5, 5));
     }
 
-    /*void OnDrawGizmosSelected()
-    {
-        // Draw a blue cube at the transform position
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position, new Vector3(1, 1, 1));
-    }*/
-
     // Update is called once per frame
     void FixedUpdate()
     {

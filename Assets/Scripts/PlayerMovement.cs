@@ -37,6 +37,24 @@ public class PlayerMovement : NetworkBehaviour
         direction = new Vector3(horMove, 0, verMove);
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, direction * 10);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawRay(transform.position, rbPlayer.velocity * 5);
+        // Draw a blue cube at the transform position
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, new Vector3(5, 5, 5));
+    }
+
+    /*void OnDrawGizmosSelected()
+    {
+        // Draw a blue cube at the transform position
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, new Vector3(1, 1, 1));
+    }*/
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -47,9 +65,9 @@ public class PlayerMovement : NetworkBehaviour
 
         rbPlayer.AddForce(direction * speed, ForceMode.Force);
 
-        if(transform.position.z > -16)
+        if(transform.position.z > 40)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -16);
+            transform.position = new Vector3(transform.position.x, transform.position.y, 40);
         }
         else if(transform.position.z < -40)
         {
@@ -73,6 +91,7 @@ public class PlayerMovement : NetworkBehaviour
             index++;
         }
         rbPlayer.MovePosition(spawnPoints[index].transform.position);
+        rbPlayer.velocity = Vector3.zero;
     }
 
     private void OnTriggerExit(Collider other)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ItemCollect : NetworkBehaviour
+public class CollectObjects : MonoBehaviour //NetworkBehaviour
 {
     private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
 
@@ -24,10 +24,10 @@ public class ItemCollect : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isLocalPlayer)
+        /*if (!isLocalPlayer)
         {
             return;
-        }
+        }*/
 
         if (itemCollider && Input.GetKeyDown(KeyCode.Space))
         {
@@ -35,13 +35,13 @@ public class ItemCollect : NetworkBehaviour
             Item item = itemCollider.gameObject.GetComponent<Item>();
             AddToInventory(item);
             PrintInventory();
-            Debug.Log("Got Coin!");
+            //Debug.Log("Got Coin!");
 
-            CmdItemCollected(item.typeOfVeggie);
+            //CmdItemCollected(item.typeOfVeggie);
         }
     }
 
-    [Command]
+    /*[Command]
     void CmdItemCollected(Item.VegetableType itemType)
     {
         Debug.Log("CommandItemCollected: " + itemType);
@@ -52,31 +52,33 @@ public class ItemCollect : NetworkBehaviour
     void RpcItemCollected(Item.VegetableType itemType)
     {
         ItemCollected?.Invoke(itemType);
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isLocalPlayer)
+        /*if (!isLocalPlayer)
         {
             return;
-        }
+        }*/
 
         if (other.CompareTag("Item"))
         {
-            itemCollider = other; 
+            itemCollider = other;
         }
     }
 
-    private void onTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (!isLocalPlayer)
+        /*if (!isLocalPlayer)
         {
             return;
-        }
+        }*/
 
         if (other.CompareTag("Item"))
         {
             itemCollider = null;
+
+            //Destroy(gameObject);
         }
     }
 
@@ -97,3 +99,8 @@ public class ItemCollect : NetworkBehaviour
         Debug.Log(output);
     }
 }
+/*
+ [SerializeField] private string itemName;
+ void OnTriggerEnter(Collider other) {
+ Debug.Log("Item collected: " + itemName);
+ Destroy(this.gameObject);*/

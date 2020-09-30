@@ -66,14 +66,6 @@ public class PlayerMovement : NetworkBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -40);
         }
-        else if (transform.position.x > 55)
-        {
-            transform.position = new Vector3(55, transform.position.y, transform.position.z);
-        }
-        else if (transform.position.x < -50)
-        {
-            transform.position = new Vector3(-50, transform.position.y, transform.position.z);
-        }
     }
 
     private void Respawn()

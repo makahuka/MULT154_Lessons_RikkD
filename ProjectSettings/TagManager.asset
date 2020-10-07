@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Coin
   - CandyBar
+  - Items
   layers:
   - Default
   - TransparentFX

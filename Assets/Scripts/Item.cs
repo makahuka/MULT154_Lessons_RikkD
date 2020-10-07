@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    //[SerializeField] private string itemName;
+    [SerializeField] private string itemName;
 
     public enum VegetableType
     {
@@ -17,13 +17,10 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKey(KeyCode.Space))
-        /*{
-            Destroy(gameObject);
-
-            //Debug.Log("Item collected: " + itemName);
-            //Destroy(this.gameObject);
-        }*/
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("Item collected: " + itemName);
+        }
     }
 
     public VegetableType typeOfVeggie;

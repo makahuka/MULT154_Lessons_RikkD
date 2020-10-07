@@ -5,9 +5,9 @@ using UnityEngine.Networking;
 
 public class CollectObjects : MonoBehaviour //NetworkBehaviour
 {
-    private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
+    private Dictionary<Items.ObjectType, int> ItemInventory = new Dictionary<Items.ObjectType, int>();
 
-    public delegate void CollectItem(Item.VegetableType item);
+    public delegate void CollectItem(Items.ObjectType item);
     public static event CollectItem ItemCollected;
 
     Collider itemCollider = null;
@@ -15,7 +15,7 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
+        foreach (Items.ObjectType item in System.Enum.GetValues(typeof(Items.ObjectType)))
         {
             ItemInventory.Add(item, 0);
         }
@@ -29,13 +29,12 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
             return;
         }*/
 
-        if (itemCollider && Input.GetKeyDown(KeyCode.Space))
+        if (itemCollider && Input.GetKeyDown(KeyCode.Space)) // (_items.ContainsKey(name) && equippedItem != name)
         {
             Debug.Log("Space bar and item collected");
-            Item item = itemCollider.gameObject.GetComponent<Item>();
+            Items item = itemCollider.gameObject.GetComponent<Items>();
             AddToInventory(item);
             PrintInventory();
-            //Debug.Log("Got Coin!");
 
             //CmdItemCollected(item.typeOfVeggie);
         }
@@ -82,16 +81,16 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
         }
     }
 
-    private void AddToInventory(Item item)
+    private void AddToInventory(Items item)
     {
-        ItemInventory[item.typeOfVeggie]++;
+        ItemInventory[item.typeOfObject]++;
     }
 
     private void PrintInventory()
     {
         string output = "";
 
-        foreach (KeyValuePair<Item.VegetableType, int> kvp in ItemInventory)
+        foreach (KeyValuePair<Items.ObjectType, int> kvp in ItemInventory)
         {
             output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
         }

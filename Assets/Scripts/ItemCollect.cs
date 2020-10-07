@@ -35,7 +35,6 @@ public class ItemCollect : NetworkBehaviour
             Item item = itemCollider.gameObject.GetComponent<Item>();
             AddToInventory(item);
             PrintInventory();
-            Debug.Log("Got Coin!");
 
             CmdItemCollected(item.typeOfVeggie);
         }

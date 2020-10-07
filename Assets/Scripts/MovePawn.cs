@@ -85,4 +85,17 @@ public class MovePawn : MonoBehaviour
             Respawn();
         }
     }*/
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "CandyBar")
+        {
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.tag == "Coin")
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }

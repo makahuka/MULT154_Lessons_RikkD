@@ -732,6 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52505e7d8d076d64e919b6527ccc03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   typeOfVeggie: 0
 --- !u!135 &310751480
 SphereCollider:
@@ -1163,6 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52505e7d8d076d64e919b6527ccc03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   typeOfVeggie: 2
 --- !u!135 &1075934135
 SphereCollider:
@@ -1406,6 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52505e7d8d076d64e919b6527ccc03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   typeOfVeggie: 1
 --- !u!135 &1264382445
 SphereCollider:

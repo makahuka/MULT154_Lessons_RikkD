@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5883265005124335050}
   m_Layer: 0
   m_Name: CandyBar
-  m_TagString: Item
+  m_TagString: CandyBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52505e7d8d076d64e919b6527ccc03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
   typeOfVeggie: 4
 --- !u!65 &5883265005124335050
 BoxCollider:

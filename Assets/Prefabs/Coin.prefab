@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3117528444699643796}
   - component: {fileID: 3117528444699643797}
   - component: {fileID: 3117528444699643794}
-  - component: {fileID: 3117528444699643792}
   - component: {fileID: 3117528444699643795}
+  - component: {fileID: -4974604400807806241}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -96,20 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &3117528444699643792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3117528444699643793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52505e7d8d076d64e919b6527ccc03a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 
-  typeOfVeggie: 3
 --- !u!95 &3117528444699643795
 Animator:
   serializedVersion: 3
@@ -129,3 +115,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4974604400807806241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117528444699643793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7e6b5f42af3994b8e81faa557fb793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Coin
+  typeOfVeggie: 0

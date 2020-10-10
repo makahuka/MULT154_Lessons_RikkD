@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCoin : MonoBehaviour
 {
-    public GameObject SpawnObjs;
+    public GameObject CoinSpawner;
 
     //public GameObject[] objCoin;
 
@@ -22,11 +22,11 @@ public class SpawnCoin : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(Random.value < 0.5f)
         {
-            Instantiate(SpawnObjs, transform.position, transform.rotation);
+            Instantiate(CoinSpawner, transform.position, transform.rotation);
             Debug.Log("You got a coin!");
         }
         else
@@ -40,7 +40,7 @@ public class SpawnCoin : MonoBehaviour
         Debug.Log("Still in the object");
     }*/
 
-    void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider col)
     {
         Debug.Log("Reset");
     }

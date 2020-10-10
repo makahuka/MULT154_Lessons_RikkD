@@ -6,7 +6,7 @@ public class Items : MonoBehaviour
 {
     [SerializeField] private string itemName;
 
-    public enum ObjectType
+    public enum VegetableType
     { 
         COIN,
         CANDYBAR
@@ -15,12 +15,7 @@ public class Items : MonoBehaviour
     private void Update()
     {
         Debug.Log("Item collected: " + itemName);
-        //if (Input.GetKey(KeyCode.Space))
-        /*{
-            //Debug.Log("Item collected: " + itemName);
-            //Destroy(this.gameObject);
-        }*/
     }
 
-    public ObjectType typeOfObject;
+    public VegetableType typeOfVeggie;
 }

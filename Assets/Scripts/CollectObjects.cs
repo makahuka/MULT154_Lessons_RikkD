@@ -5,9 +5,9 @@ using UnityEngine.Networking;
 
 public class CollectObjects : MonoBehaviour //NetworkBehaviour
 {
-    private Dictionary<Items.ObjectType, int> ItemInventory = new Dictionary<Items.ObjectType, int>();
+    private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
 
-    public delegate void CollectItem(Items.ObjectType item);
+    public delegate void CollectItem(Item.VegetableType item);
     public static event CollectItem ItemCollected;
 
     Collider itemCollider = null;
@@ -15,7 +15,7 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Items.ObjectType item in System.Enum.GetValues(typeof(Items.ObjectType)))
+        foreach (Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
         {
             ItemInventory.Add(item, 0);
         }
@@ -29,10 +29,16 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
             return;
         }*/
 
-        if (itemCollider && Input.GetKeyDown(KeyCode.Space)) // (_items.ContainsKey(name) && equippedItem != name)
+        /*void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Space bar and item collected");
-            Items item = itemCollider.gameObject.GetComponent<Items>();
+            Managers.Inventory.AddItem(itemName);
+            Destroy(this.gameObject);
+        }*/
+
+        if (itemCollider && gameObject.gameObject)
+        {
+            Debug.Log("Item collected");
+            Item item = itemCollider.gameObject.GetComponent<Item>();
             AddToInventory(item);
             PrintInventory();
 
@@ -81,16 +87,16 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
         }
     }
 
-    private void AddToInventory(Items item)
+    private void AddToInventory(Item item)
     {
-        ItemInventory[item.typeOfObject]++;
+        ItemInventory[item.typeOfVeggie]++;
     }
 
     private void PrintInventory()
     {
         string output = "";
 
-        foreach (KeyValuePair<Items.ObjectType, int> kvp in ItemInventory)
+        foreach (KeyValuePair<Item.VegetableType, int> kvp in ItemInventory)
         {
             output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
         }

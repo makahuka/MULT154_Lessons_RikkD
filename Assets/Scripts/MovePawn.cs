@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovePawn : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class MovePawn : MonoBehaviour
     private Vector3 direction = Vector3.zero;
     public float speed = 10.0f;
     //public GameObject[] spawnPoints = null;
+
+    public Text CoinCount;
+    public int coins = 0;
+
+    public Text SweetsCount;
+    private int sweets = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -86,16 +93,22 @@ public class MovePawn : MonoBehaviour
         }
     }*/
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "CandyBar")
         {
             other.gameObject.SetActive(false);
+
+            sweets += 1;
+            SweetsCount.text = "Sweets: " + sweets;
         }
 
         if (other.gameObject.tag == "Coin")
         {
             other.gameObject.SetActive(false);
+
+            coins += 1;
+            CoinCount.text = "Coin: " + coins;
         }
     }
 }

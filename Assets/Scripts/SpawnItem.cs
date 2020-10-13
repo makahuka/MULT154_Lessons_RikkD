@@ -6,16 +6,15 @@ public class SpawnItem : MonoBehaviour
 {
     public GameObject SpawnObjs;
     public GameObject TicketObjs;
-    public int coins;
-
-    //private bool _spend;
-
+    //public int coins;
+    bool coins;
     // Start is called before the first frame update
     void Start()
     {
-        GameObject MovePawn = GameObject.Find("Pawn");
+        /*GameObject MovePawn = GameObject.Find("Pawn");
         MovePawn movePawnScript = MovePawn.GetComponent<MovePawn>();
-        movePawnScript.coins -= 0;
+        movePawnScript.coins -= 0;*/
+        //var coins = true;
         // Instantiate(SpawnObjs, transform.position, transform.rotation);
     }
 
@@ -47,12 +46,20 @@ public class SpawnItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Pawn" && coins >= 1) // if player has coin spawn a treat or a golden ticket
+        //bool coins = true;
+
+        //var coins = true;
+
+        if (coins == false) // if player has coin spawn a treat or a golden ticket
         {
-            Debug.Log("In the shop!");
+            Debug.Log("No Sweets:(");
+        }
+        else if(coins == true)
+        {
+            Debug.Log("Collect a treat!");
         }
 
-        if (Random.value < 0.8f)
+        /*if (Random.value < 0.8f)
         {
             Instantiate(SpawnObjs, transform.position, transform.rotation);
             Debug.Log("You got sweets:)");
@@ -61,7 +68,7 @@ public class SpawnItem : MonoBehaviour
         {
                 Instantiate(TicketObjs, transform.position, transform.rotation);
                 Debug.Log("You got a golden ticket!");
-        }
+        }*/
     }
 
     void OnTriggerExit(Collider col)

@@ -76,3 +76,12 @@ public class SpawnItem : MonoBehaviour
         Debug.Log("Reset");
     }
 }
+/*  private bool hasHive = true;
+    private Patrolling patrol; // This and this for collecting coin and accessing the sweets spot
+    void Update()
+    {
+        if(hasHive)
+        {
+            patrol.PatrolWaypoints(); // This and this for collecting coin and accessing the sweets spot
+        }
+    }*/

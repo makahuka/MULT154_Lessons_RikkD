@@ -23,6 +23,7 @@ public class BearBrain : MonoBehaviour
         hivePos = pos;
         hiveDropped = true;
     }
+
     // Update is called once per frame
     void Update()
     {

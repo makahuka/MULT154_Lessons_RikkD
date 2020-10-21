@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+// ItemCollect script
+
 public class CollectObjects : MonoBehaviour //NetworkBehaviour
 {
     private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
@@ -24,16 +26,6 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (!isLocalPlayer)
-        {
-            return;
-        }*/
-
-        /*void OnTriggerEnter(Collider other)
-        {
-            Managers.Inventory.AddItem(itemName);
-            Destroy(this.gameObject);
-        }*/
 
         if (itemCollider && gameObject.gameObject)
         {
@@ -46,27 +38,14 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
         }
     }
 
-    /*[Command]
-    void CmdItemCollected(Item.VegetableType itemType)
-    {
-        Debug.Log("CommandItemCollected: " + itemType);
-        RpcItemCollected(itemType);
-    }
-
-    [ClientRpc]
-    void RpcItemCollected(Item.VegetableType itemType)
-    {
-        ItemCollected?.Invoke(itemType);
-    }*/
-
     private void OnTriggerEnter(Collider other)
     {
-        /*if (!isLocalPlayer)
+        if (other.CompareTag("Coin"))
         {
-            return;
-        }*/
+            itemCollider = other;
+        }
 
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("CandyBar"))
         {
             itemCollider = other;
         }
@@ -74,12 +53,14 @@ public class CollectObjects : MonoBehaviour //NetworkBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        /*if (!isLocalPlayer)
+        if (other.CompareTag("Coin"))
         {
-            return;
-        }*/
+            itemCollider = null;
 
-        if (other.CompareTag("Item"))
+            //Destroy(gameObject);
+        }
+
+        if (other.CompareTag("CandyBar"))
         {
             itemCollider = null;
 

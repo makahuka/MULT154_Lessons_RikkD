@@ -16,26 +16,22 @@ public class MovePawn : MonoBehaviour
     public Text SweetsCount;
     private int sweets = 0;
 
+    public delegate void CoinUse(Vector3 pos);
+    public static event CoinUse UseCoin;
+
+    Animator anim;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        /*if (!isLocalPlayer)
-        {
-            return;
-        }*/
-
         rbPlayer = GetComponent<Rigidbody>();
         //spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
-
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        /*if (!isLocalPlayer)
-        {
-            return;
-        }*/
-
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
 
@@ -45,56 +41,53 @@ public class MovePawn : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*if (!isLocalPlayer)
-        {
-            return;
-        }*/
-
         rbPlayer.AddForce(direction * speed, ForceMode.Force);
 
         if (transform.position.z > -16)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -16);
+            anim.speed = 0;
         }
         else if (transform.position.z < -40)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -40);
+            anim.CrossFade("WalkAnimation_" + transform.position.x, transform.position.y, -40, 0); // c
+            anim.speed = 1;
         }
         else if (transform.position.x > 60)
         {
             transform.position = new Vector3(60, transform.position.y, transform.position.z);
+            anim.speed = 0;
         }
         else if (transform.position.x < -60)
         {
             transform.position = new Vector3(-60, transform.position.y, transform.position.z);
+            anim.CrossFade("WalkAnimation_" + transform.position.x, transform.position.y, -40, 0); // c
+            anim.speed = 1;
         }
+
+        // Animation
+        /*if (dirHeld == -1)
+        { // b
+            anim.speed = 0;
+        }
+        else
+        {
+            anim.CrossFade("Dray_Walk_" + dirHeld, 0
+            ); // c
+            anim.speed = 1;
+        }*/
+
     }
-
-    /*private void Respawn()
-    {
-        int index = 0;
-        while (Physics.CheckBox(spawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
-        {
-            index++;
-        }
-        rbPlayer.MovePosition(spawnPoints[index].transform.position);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
-
-        if (other.CompareTag("Hazard"))
-        {
-            Respawn();
-        }
-    }*/
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.gameObject.tag == "Coin")
+        {
+            UseCoin?.Invoke(transform.position/* + (transform.forward * 5)*/);
+        }
+
         if (other.gameObject.tag == "CandyBar")
         {
             other.gameObject.SetActive(false);
@@ -108,6 +101,22 @@ public class MovePawn : MonoBehaviour
             other.gameObject.SetActive(false);
 
             coins += 1;
+            CoinCount.text = "Coin: " + coins;
+        }
+
+        if (other.gameObject.tag == "CandyBar")
+        {
+            other.gameObject.SetActive(false);
+
+            coins -= 1;
+            CoinCount.text = "Coin: " + coins;
+        }
+
+        if (other.gameObject.tag == "Ticket")
+        {
+            other.gameObject.SetActive(false);
+
+            coins -= 1;
             CoinCount.text = "Coin: " + coins;
         }
     }

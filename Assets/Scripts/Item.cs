@@ -10,9 +10,7 @@ public class Item : MonoBehaviour
     {
         BEET,
         CARROT,
-        RADISH,
-        COIN,
-        CANDYBAR
+        RADISH
     }
 
     private void Update()

@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnCoin : MonoBehaviour
 {
     public GameObject CoinSpawner;
+
+    public Text noCoin;
+    public Text gotCoin;
 
     //public GameObject[] objCoin;
 
@@ -27,10 +31,16 @@ public class SpawnCoin : MonoBehaviour
         if(Random.value < 0.5f)
         {
             Instantiate(CoinSpawner, transform.position, transform.rotation);
+            gotCoin.gameObject.SetActive(true);
             Debug.Log("You got a coin!");
+            /*if(true)
+            {
+                Destroy(gameObject);
+            }*/
         }
         else
         {
+            noCoin.gameObject.SetActive(false);
             Debug.Log("No Coin:(");
         }
     }

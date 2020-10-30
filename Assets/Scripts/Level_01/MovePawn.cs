@@ -19,15 +19,13 @@ public class MovePawn : MonoBehaviour
     public delegate void CoinUse(Vector3 pos);
     public static event CoinUse UseCoin;
 
-    Animator anim;
-
+    //public bool coins;
 
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
         //spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
-        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -46,24 +44,18 @@ public class MovePawn : MonoBehaviour
         if (transform.position.z > -16)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -16);
-            anim.speed = 0;
         }
         else if (transform.position.z < -40)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -40);
-            anim.CrossFade("WalkAnimation_" + transform.position.x, transform.position.y, -40, 0); // c
-            anim.speed = 1;
         }
         else if (transform.position.x > 60)
         {
             transform.position = new Vector3(60, transform.position.y, transform.position.z);
-            anim.speed = 0;
         }
         else if (transform.position.x < -60)
         {
             transform.position = new Vector3(-60, transform.position.y, transform.position.z);
-            anim.CrossFade("WalkAnimation_" + transform.position.x, transform.position.y, -40, 0); // c
-            anim.speed = 1;
         }
 
         // Animation
@@ -83,7 +75,7 @@ public class MovePawn : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Coin")
+        if (other.gameObject.tag == "Coin") //Using coin to buy treat
         {
             UseCoin?.Invoke(transform.position/* + (transform.forward * 5)*/);
         }
@@ -94,6 +86,8 @@ public class MovePawn : MonoBehaviour
 
             sweets += 1;
             SweetsCount.text = "Sweets: " + sweets;
+
+            //if (other.gameObject.tag == "CandyBar" && coins >= 1)
         }
 
         if (other.gameObject.tag == "Coin")
@@ -104,12 +98,18 @@ public class MovePawn : MonoBehaviour
             CoinCount.text = "Coin: " + coins;
         }
 
-        if (other.gameObject.tag == "CandyBar")
+        if (other.gameObject.tag == "CandyBar" && coins >= 1/*other.gameObject.tag == "CandyBar"*/) // subtracts coin 
         {
             other.gameObject.SetActive(false);
 
             coins -= 1;
-            CoinCount.text = "Coin: " + coins;
+            CoinCount.text = "Coin: " + coins; 
+
+            /*if (coins != 0)
+            {
+
+                Debug.Log("no more coins, no more sweets!");
+            }*/
         }
 
         if (other.gameObject.tag == "Ticket")
@@ -117,7 +117,12 @@ public class MovePawn : MonoBehaviour
             other.gameObject.SetActive(false);
 
             coins -= 1;
-            CoinCount.text = "Coin: " + coins;
+            //CoinCount.text = "Coin: " + coins;
         }
     }
+
+    /*private void OnTriggerExit(Collider col)
+    {
+        Debug.Log("Reset");
+    }*/
 }

@@ -152,6 +152,7 @@ public class Bot : MonoBehaviour
         Vector3 targetXZPos = new Vector3(target.transform.position.x, 1.5f, target.transform.position.z);
         Vector3 thisXZPos = new Vector3(target.transform.position.x, 1.5f, target.transform.position.z);
         Vector3 rayToTarget = targetXZPos  - thisXZPos;
+        Debug.DrawRay(thisXZPos, rayToTarget, Color.magenta);
         if (Physics.Raycast(thisXZPos, rayToTarget, out raycastInfo))
         {
             if (raycastInfo.transform.gameObject == target.gameObject)
@@ -163,15 +164,20 @@ public class Bot : MonoBehaviour
     public bool CanTargetSeeMe()
     {
         RaycastHit raycastInfo;
-        /*Vector3 targetFwdWS = target.transform.TransformDirection(target.transform.forward);
-        Debug.DrawRay(target.transform.position, targetFwdWS * 10);
-        Debug.DrawRay(target.transform.position, target.transform.forward * 10, Color.green);*/
+        //Vector3 targetFwdWS = target.transform.TransformDirection(target.transform.forward);
+        //Debug.DrawRay(target.transform.position, targetFwdWS * 10);
+        Debug.DrawRay(target.transform.position, target.transform.forward * 10, Color.green);
         if (Physics.Raycast(target.transform.position, target.transform.forward, out raycastInfo))
         {
             if (raycastInfo.transform.gameObject == gameObject)
                 return true;
         }
         return false;
+    }
+
+    public void Stop()
+    {
+        agent.isStopped = true;
     }
 
     // Update is called once per frame

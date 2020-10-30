@@ -11,6 +11,7 @@ TagManager:
   - Items
   - Pawn
   - Ticket
+  - twitchLeftEar
   layers:
   - Default
   - TransparentFX

@@ -1634,11 +1634,11 @@ GameObject:
   m_Component:
   - component: {fileID: 407847011}
   - component: {fileID: 407847017}
-  - component: {fileID: 407847016}
   - component: {fileID: 407847015}
   - component: {fileID: 407847014}
   - component: {fileID: 407847013}
   - component: {fileID: 407847012}
+  - component: {fileID: 407847016}
   m_Layer: 0
   m_Name: PlayerPawn
   m_TagString: Untagged
@@ -2485,7 +2485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &655420418
 MonoBehaviour:
   m_ObjectHideFlags: 0

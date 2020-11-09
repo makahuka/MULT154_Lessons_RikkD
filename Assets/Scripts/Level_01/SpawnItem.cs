@@ -7,11 +7,13 @@ public class SpawnItem : MonoBehaviour
     public GameObject SpawnObjs;
     public GameObject TicketObjs;
     //public int coins;
-    bool coins;
+    //bool coins;
 
     private MovePawn coin;
     private Vector3 coinPos;
     private bool coinUsed = false;
+
+    //public GameObject MyGameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -42,20 +44,29 @@ public class SpawnItem : MonoBehaviour
         {
             Debug.Log("No Sweets:(");
         }
-        else if(coinUsed == true)
+        else if(coinUsed == true) //other.gameObject.tag == "CandyBar" && coins >= 1/*other.gameObject.tag == "CandyBar"*/) // subtracts coin 
         {
-
             if (Random.value < 0.8f)
             {
                 Instantiate(SpawnObjs, transform.position, transform.rotation);
                 Debug.Log("You got sweets:)");
+
+                coinUsed = false;
             }
             else
             {
                 Instantiate(TicketObjs, transform.position, transform.rotation);
                 Debug.Log("You got a golden ticket!");
+
+                //Destroy(gameObject);
             }
             Debug.Log("Collect a treat!");
+
+            // if coin is used, reset use coin, this isn't working very well
+            /*if (coinUsed == true)
+            {
+                coinUsed = false;
+            }*/
         }
     }
 

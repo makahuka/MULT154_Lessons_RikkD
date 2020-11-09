@@ -19,13 +19,15 @@ public class MovePawn : MonoBehaviour
     public delegate void CoinUse(Vector3 pos);
     public static event CoinUse UseCoin;
 
-    //public bool coins;
+    public GameObject coinUsed;
 
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
         //spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
+
+        // need to try this code-->bool UseCoin = true;  
     }
 
     private void Update()
@@ -78,6 +80,13 @@ public class MovePawn : MonoBehaviour
         if (other.gameObject.tag == "Coin") //Using coin to buy treat
         {
             UseCoin?.Invoke(transform.position/* + (transform.forward * 5)*/);
+
+            // if coin is used, reset use coin, this isn't working
+            /*void Reset()
+            {
+                if (!coinUsed)
+                    coinUsed = GameObject.FindWithTag("Pawn");
+            }*/
         }
 
         if (other.gameObject.tag == "CandyBar")
@@ -103,8 +112,7 @@ public class MovePawn : MonoBehaviour
             other.gameObject.SetActive(false);
 
             coins -= 1;
-            CoinCount.text = "Coin: " + coins; 
-
+            CoinCount.text = "Coin: " + coins;
             /*if (coins != 0)
             {
 

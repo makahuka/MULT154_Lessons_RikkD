@@ -40,7 +40,7 @@ public class SpawnCoin : MonoBehaviour
         }
         else
         {
-            noCoin.gameObject.SetActive(false);
+            noCoin.gameObject.SetActive(true);
             Debug.Log("No Coin:(");
         }
     }

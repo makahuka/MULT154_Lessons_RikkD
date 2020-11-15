@@ -21,10 +21,16 @@ public class MovePawn : MonoBehaviour
 
     public GameObject coinUsed;
 
+    private Animator anim;
+    private float translation;
+
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
+
+        anim = GetComponent<Animator>();
+
         //spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
 
         // need to try this code-->bool UseCoin = true;  
@@ -36,6 +42,9 @@ public class MovePawn : MonoBehaviour
         float verMove = Input.GetAxis("Vertical");
 
         direction = new Vector3(horMove, 0, verMove);
+
+
+        anim.SetFloat("speed", translation);
     }
 
     // Update is called once per frame
@@ -59,18 +68,6 @@ public class MovePawn : MonoBehaviour
         {
             transform.position = new Vector3(-60, transform.position.y, transform.position.z);
         }
-
-        // Animation
-        /*if (dirHeld == -1)
-        { // b
-            anim.speed = 0;
-        }
-        else
-        {
-            anim.CrossFade("Dray_Walk_" + dirHeld, 0
-            ); // c
-            anim.speed = 1;
-        }*/
 
     }
 
@@ -103,8 +100,13 @@ public class MovePawn : MonoBehaviour
         {
             other.gameObject.SetActive(false);
 
-            coins += 1;
+            coins = 1;
             CoinCount.text = "Coin: " + coins;
+
+            if (other.gameObject.tag == "Coin" && coins == 1)
+            {
+                CancelInvoke();
+            }
         }
 
         if (other.gameObject.tag == "CandyBar" && coins >= 1/*other.gameObject.tag == "CandyBar"*/) // subtracts coin 
@@ -125,7 +127,7 @@ public class MovePawn : MonoBehaviour
             other.gameObject.SetActive(false);
 
             coins -= 1;
-            //CoinCount.text = "Coin: " + coins;
+            CoinCount.text = "Coin: " + coins;
         }
     }
 

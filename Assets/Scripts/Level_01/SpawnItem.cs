@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class SpawnItem : MonoBehaviour
 {
     public GameObject SpawnObjs;
     public GameObject TicketObjs;
-    //public int coins;
-    //bool coins;
+    public Text gotTicket;
 
     private MovePawn coin;
     private Vector3 coinPos;
     private bool coinUsed = false;
+
+    /// <summary>
+    /// The positions. these are the positons of your spawn points
+    public GameObject[] positions;
 
     //public GameObject MyGameObject;
 
@@ -20,6 +25,7 @@ public class SpawnItem : MonoBehaviour
     {
         coin = GetComponent<MovePawn>();
         MovePawn.UseCoin += CoinReady;
+        StartCoroutine(TextCoroutine());
     }
 
     void CoinReady(Vector3 pos)
@@ -36,9 +42,6 @@ public class SpawnItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //bool coins = true;
-
-        //var coins = true;
 
         if (coinUsed == false) // if player has coin spawn a treat or a golden ticket
         {
@@ -46,7 +49,7 @@ public class SpawnItem : MonoBehaviour
         }
         else if(coinUsed == true) //other.gameObject.tag == "CandyBar" && coins >= 1/*other.gameObject.tag == "CandyBar"*/) // subtracts coin 
         {
-            if (Random.value < 0.8f)
+            if (Random.value < 0.1f) // Use < 0.8f
             {
                 Instantiate(SpawnObjs, transform.position, transform.rotation);
                 Debug.Log("You got sweets:)");
@@ -58,7 +61,11 @@ public class SpawnItem : MonoBehaviour
                 Instantiate(TicketObjs, transform.position, transform.rotation);
                 Debug.Log("You got a golden ticket!");
 
-                //Destroy(gameObject);
+                // Cancel all Invoke calls
+                if (TicketObjs == true) // Ticket spawned, shops stop spawning
+                    gotTicket.gameObject.SetActive(true);
+                CancelInvoke();
+                coinUsed = false;
             }
             Debug.Log("Collect a treat!");
 
@@ -68,6 +75,24 @@ public class SpawnItem : MonoBehaviour
                 coinUsed = false;
             }*/
         }
+    }
+    IEnumerator TextCoroutine()
+    {
+        if (TicketObjs == true)
+        //gotTicket.gameObject.SetActive(true);
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
+
+    private void Destroy(GameObject[] positions)
+    {
+        throw new System.NotImplementedException();
     }
 
     void OnTriggerExit(Collider col)

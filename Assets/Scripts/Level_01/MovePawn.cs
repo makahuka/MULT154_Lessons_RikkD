@@ -73,32 +73,10 @@ public class MovePawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.tag == "Coin") //Using coin to buy treat
-        {
-            UseCoin?.Invoke(transform.position/* + (transform.forward * 5)*/);
-
-            // if coin is used, reset use coin, this isn't working
-            /*void Reset()
-            {
-                if (!coinUsed)
-                    coinUsed = GameObject.FindWithTag("Pawn");
-            }*/
-        }
-
-        if (other.gameObject.tag == "CandyBar")
-        {
-            other.gameObject.SetActive(false);
-
-            sweets += 1;
-            SweetsCount.text = "Sweets: " + sweets;
-
-            //if (other.gameObject.tag == "CandyBar" && coins >= 1)
-        }
-
         if (other.gameObject.tag == "Coin")
         {
             other.gameObject.SetActive(false);
+            UseCoin?.Invoke(transform.position/* + (transform.forward * 5)*/);
 
             coins = 1;
             CoinCount.text = "Coin: " + coins;
@@ -113,20 +91,18 @@ public class MovePawn : MonoBehaviour
         {
             other.gameObject.SetActive(false);
 
+            sweets += 1;
+            SweetsCount.text = "Sweets: " + sweets;
+
             coins -= 1;
             CoinCount.text = "Coin: " + coins;
-            /*if (coins != 0)
-            {
-
-                Debug.Log("no more coins, no more sweets!");
-            }*/
         }
 
         if (other.gameObject.tag == "Ticket")
         {
             other.gameObject.SetActive(false);
 
-            coins -= 1;
+            //coins -= 1;
             CoinCount.text = "Coin: " + coins;
         }
     }

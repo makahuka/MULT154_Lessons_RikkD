@@ -49,7 +49,7 @@ public class SpawnItem : MonoBehaviour
         }
         else if(coinUsed == true) //other.gameObject.tag == "CandyBar" && coins >= 1/*other.gameObject.tag == "CandyBar"*/) // subtracts coin 
         {
-            if (Random.value < 0.1f) // Use < 0.8f
+            if (Random.value < 0.8f) // Use < 0.8f for game, use for testing < 0.1f
             {
                 Instantiate(SpawnObjs, transform.position, transform.rotation);
                 Debug.Log("You got sweets:)");
@@ -63,7 +63,7 @@ public class SpawnItem : MonoBehaviour
 
                 // Cancel all Invoke calls
                 if (TicketObjs == true) // Ticket spawned, shops stop spawning
-                    gotTicket.gameObject.SetActive(true);
+                gotTicket.gameObject.SetActive(true);
                 CancelInvoke();
                 coinUsed = false;
             }

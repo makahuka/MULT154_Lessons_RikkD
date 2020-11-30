@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ChocolateRiverMat
+  m_Shader: {fileID: -6465566751694194690, guid: 2900ac8c5316aa04082282e0aa39549a,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_14C6F79: 8
+    - Vector1_284B0A69: 8
+    - Vector1_37A794E6: 1
+    - Vector1_3CC27A6F: 0.28
+    - Vector1_5E28C0A: 4
+    - Vector1_A17B9411: 1
+    - Vector1_ACC9B842: 0.1
+    - Vector1_C4CD5AAD: 1
+    - Vector1_E66EDFFB: 0.43
+    - Vector1_FF926D8E: 6
+    m_Colors:
+    - Color_18E4A89: {r: 0.3018868, g: 0.18415093, b: 0.0754717, a: 0}
+    - Color_1D2231AC: {r: 0, g: 0, b: 0, a: 0}
+    - Color_4B1A0BCA: {r: 0.33962262, g: 0.18342826, b: 0.027233893, a: 0}
+    - Color_D384C629: {r: 0.5188679, g: 0.23242831, b: 0.061187245, a: 0}
+    - Vector2_32EF4413: {r: 0.01, g: 0.05, b: 0, a: 0}
+    - Vector2_8BC5BF: {r: 0.05, g: 0.01, b: 0, a: 0}
+    - WHColor: {r: 0.5061854, g: 0.7019105, b: 0.8584906, a: 0}
+    - Water_Highlight_Color: {r: 0.5061854, g: 0.7019105, b: 0.8584906, a: 0}

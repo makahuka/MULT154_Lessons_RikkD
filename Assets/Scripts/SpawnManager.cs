@@ -23,7 +23,8 @@ public class SpawnManager : NetworkBehaviour
     {
         foreach (GameObject lilyPad in lilyPadObjs)
         {
-            GameObject tempLilyPad = Instantiate(lilyPad);
+            Vector3 position = new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));//Vector3 position = new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f));
+            GameObject tempLilyPad = Instantiate(lilyPad/*[Random.Range(0, lilyPad.Length)], transform.position, Quaternion.identity*/); //(lilyPad[Random.Range(0, Items.Length)], transform.position, Quaternion.identity);
             NetworkServer.Spawn(tempLilyPad);
         }
     }

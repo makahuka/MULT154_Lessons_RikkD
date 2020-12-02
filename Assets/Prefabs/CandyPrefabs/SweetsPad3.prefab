@@ -16,7 +16,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c9c3fee7987c6a14182bbdd98ace00a0, type: 2}
+      objectReference: {fileID: 2100000, guid: eca87ac875d9d9f448241907162f525e, type: 2}
     - target: {fileID: 1772833326436393724, guid: bd6a3937de8dde248b43709da2d754f8,
         type: 3}
       propertyPath: driftDirection

@@ -69,11 +69,11 @@ public class NavPlayerMovement : MonoBehaviour
 
     IEnumerator ZoomOut()
     {
-        const int ITERATIONS = 24;
+        const int ITERATIONS = 25;
         for(int z = 0; z < ITERATIONS; z++)
         {
             camera.transform.Translate(camera.transform.forward * -1 * 15.0f/ITERATIONS);
-            yield return new WaitForSeconds(1.0f/ITERATIONS);
+            yield return new WaitForSeconds(1.0f / ITERATIONS);
         }
     }
 
@@ -98,12 +98,13 @@ public class NavPlayerMovement : MonoBehaviour
 
         float angleInterval = angle / INTERVALS;
 
-        for(int i = 0; 1 < INTERVALS; i++)
+        for(int i = 0; i < INTERVALS; i++)
         {
             lookTarget.RotateAround(transform.position, Vector3.up, -angleInterval);
             yield return new WaitForSeconds(INTERVAL);
         }
-        for (int i = 0; 1 < INTERVALS; i++)
+
+        for (int i = 0; i < INTERVALS; i++)
         {
             lookTarget.RotateAround(transform.position, Vector3.up, angleInterval);
             yield return new WaitForSeconds(INTERVAL);

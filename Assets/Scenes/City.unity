@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -519,6 +519,8 @@ MonoBehaviour:
   TicketObjs: {fileID: 8577294790347699672, guid: 08ae644d1c4d63b489d3abbdb22c389d,
     type: 3}
   gotTicket: {fileID: 1670112358}
+  runHomeTrigNxtLevel: {fileID: 8004062318055675916, guid: 1e5f2224853ff5a4b87d5a124f623f17,
+    type: 3}
   positions:
   - {fileID: 140042445}
   - {fileID: 441361223}
@@ -726,36 +728,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144116100}
   m_CullTransparentMesh: 0
---- !u!1 &144836659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 144836660}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &144836660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 144836659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 582927240}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245060907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,6 +1974,8 @@ MonoBehaviour:
   TicketObjs: {fileID: 8577294790347699672, guid: 08ae644d1c4d63b489d3abbdb22c389d,
     type: 3}
   gotTicket: {fileID: 1670112358}
+  runHomeTrigNxtLevel: {fileID: 8004062318055675916, guid: 1e5f2224853ff5a4b87d5a124f623f17,
+    type: 3}
   positions: []
 --- !u!65 &441361226
 BoxCollider:
@@ -2715,117 +2689,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574916876}
   m_CullTransparentMesh: 0
---- !u!1 &582927238
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 582927240}
-  - component: {fileID: 582927239}
-  - component: {fileID: 582927241}
-  - component: {fileID: 582927242}
-  m_Layer: 0
-  m_Name: Home
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &582927239
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582927238}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: abd39e11687a7e64f80cf6a7a84dcfcc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 15.84, y: 16.75}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &582927240
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582927238}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 84.35, y: -22.500002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 144836660}
-  m_Father: {fileID: 1139106113}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!65 &582927241
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582927238}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 11.550006, y: 10.780003, z: 1.08}
-  m_Center: {x: 0, y: -1.42, z: 0}
---- !u!114 &582927242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582927238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa9f3e3dd4410254baf273df2f7bdee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stores: []
-  TicketObjs: {fileID: 0}
 --- !u!1 &609301247
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,7 +2865,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655420417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3386,7 +3249,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 4.2426e-41, z: 0, w: NaN}
+  m_BoundingSphereOverride: {x: 1.0475e-41, y: 1.01e-43, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4157,6 +4020,7 @@ MonoBehaviour:
   TicketObjs: {fileID: 8577294790347699672, guid: 08ae644d1c4d63b489d3abbdb22c389d,
     type: 3}
   gotTicket: {fileID: 0}
+  runHomeTrigNxtLevel: {fileID: 0}
   positions: []
 --- !u!65 &987270323
 BoxCollider:
@@ -4769,7 +4633,6 @@ Transform:
   - {fileID: 2071947716}
   - {fileID: 1308194499}
   - {fileID: 2095209848}
-  - {fileID: 582927240}
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4810,6 +4673,7 @@ MonoBehaviour:
   TicketObjs: {fileID: 8577294790347699672, guid: 08ae644d1c4d63b489d3abbdb22c389d,
     type: 3}
   gotTicket: {fileID: 0}
+  runHomeTrigNxtLevel: {fileID: 0}
   positions: []
 --- !u!65 &1177422242
 BoxCollider:
@@ -6620,6 +6484,7 @@ GameObject:
   - component: {fileID: 1670112357}
   - component: {fileID: 1670112359}
   - component: {fileID: 1670112358}
+  - component: {fileID: 1670112360}
   m_Layer: 5
   m_Name: GotTicket
   m_TagString: Untagged
@@ -6643,7 +6508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275, y: 114}
+  m_AnchoredPosition: {x: 247, y: 166}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670112358
@@ -6680,6 +6545,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'You got a golden ticket!
 
+    Run home and don''t stop!
+
 '
 --- !u!222 &1670112359
 CanvasRenderer:
@@ -6689,6 +6556,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670112356}
   m_CullTransparentMesh: 0
+--- !u!114 &1670112360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670112356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2.38, y: -2.2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1678120281
 GameObject:
   m_ObjectHideFlags: 0
@@ -6898,6 +6780,7 @@ MonoBehaviour:
     type: 3}
   TicketObjs: {fileID: 0}
   gotTicket: {fileID: 0}
+  runHomeTrigNxtLevel: {fileID: 0}
   positions: []
 --- !u!65 &1686851608
 BoxCollider:
@@ -8959,6 +8842,7 @@ MonoBehaviour:
     type: 3}
   TicketObjs: {fileID: 0}
   gotTicket: {fileID: 0}
+  runHomeTrigNxtLevel: {fileID: 0}
   positions: []
 --- !u!4 &28815547530155039
 Transform:

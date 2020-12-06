@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.UI;
 
 public class SpawnItem : MonoBehaviour
@@ -9,6 +8,7 @@ public class SpawnItem : MonoBehaviour
     public GameObject SpawnObjs;
     public GameObject TicketObjs;
     public Text gotTicket;
+    public GameObject runHomeTrigNxtLevel;
 
     private MovePawn coin;
     private Vector3 coinPos;
@@ -66,6 +66,10 @@ public class SpawnItem : MonoBehaviour
                 gotTicket.gameObject.SetActive(true);
                 CancelInvoke();
                 coinUsed = false;
+
+                Instantiate(runHomeTrigNxtLevel, new Vector3(64.50f, 0, -28.7f), Quaternion.Euler(90, 180, 90));
+                //Instantiate(runHomeTrigNxtLevel, transform.position, transform.rotation);
+                Debug.Log("Runhome, and don't stop!");
             }
             Debug.Log("Collect a treat!");
 
@@ -76,6 +80,7 @@ public class SpawnItem : MonoBehaviour
             }*/
         }
     }
+
     IEnumerator TextCoroutine()
     {
         if (TicketObjs == true)
@@ -90,10 +95,10 @@ public class SpawnItem : MonoBehaviour
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 
-    private void Destroy(GameObject[] positions)
+    /*private void Destroy(GameObject[] positions)
     {
         throw new System.NotImplementedException();
-    }
+    }*/
 
     void OnTriggerExit(Collider col)
     {

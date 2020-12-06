@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PawnMovement : NetworkBehaviour
+public class PawnMovement : MonoBehaviour // NetworkBehaviour
 {
     private Rigidbody rbPlayer;
     private Vector3 direction = Vector3.zero;

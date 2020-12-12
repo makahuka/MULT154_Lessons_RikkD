@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChocolateRiver.unity
     guid: bc7ab7cab5b1061488dd212e9a477ec8
+  - enabled: 1
+    path: Assets/Scenes/RiverLevel.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/StartScene2.unity
+    guid: 1e6d4b1f9727b3844966264acc5c42a8
   m_configObjects: {}

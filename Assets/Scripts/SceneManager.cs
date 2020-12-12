@@ -10,4 +10,9 @@ public class SceneManager : MonoBehaviour
     {
         Application.LoadLevel("City");
     }
+
+    internal static object GetActiveScene()
+    {
+        throw new NotImplementedException();
+    }
 }

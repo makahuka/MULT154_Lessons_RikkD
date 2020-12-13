@@ -22,6 +22,8 @@ public abstract class PlayerState
 
     public abstract void FixedUpdate();
 
+    public abstract void OnTriggerEnter(Collider other);
+
     public abstract void OnTriggerExit(Collider other);
 
 }
@@ -30,7 +32,7 @@ public class RiverState : PlayerState
 {
     private Rigidbody rbPlayer;
     private Vector3 direction = Vector3.zero;
-    public float speed = 10.0f;
+    public float speed = 20.0f;
     public GameObject[] spawnPoints = null;
 
     public RiverState(NetworkBehaviour thisObj) : base(thisObj)
@@ -92,6 +94,16 @@ public class RiverState : PlayerState
         rbPlayer.velocity = Vector3.zero;
     }
 
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Exit"))
+        {
+            NetworkManager network =
+                GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+            networkManager.ServerChangeScene("ForestLevel");
+        }
+    }
+    
     public override void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Hazard"))
@@ -134,19 +146,26 @@ public class PlayerContext : NetworkBehaviour
         if (!isLocalPlayer) return;
 
         currentState.Update();
+    }
 
-        void FixedUpdate()
-        {
-            if (!isLocalPlayer) return;
+    void FixedUpdate()
+    {
+        if (!isLocalPlayer) return;
 
-            currentState.Update();
-        }
+        currentState.Update();
+    }
 
-        void OnTriggerExit(Collider other)
-        {
-            if (!isLocalPlayer) return;
+    void OnTriggerEnter(Collider other)
+    {
+        if (!isLocalPlayer) return;
 
-            currentState.OnTriggerExit(other);
-        }
+        currentState.OnTriggerEnter(other);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (!isLocalPlayer) return;
+
+        currentState.OnTriggerExit(other);
     }
 }

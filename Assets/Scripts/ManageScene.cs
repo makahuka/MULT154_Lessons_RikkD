@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class ManageScene : MonoBehaviour
 {
     public void StartLevel()
     {
         Application.LoadLevel("City");
     }
 
-    internal static object GetActiveScene()
+    /*internal static object GetActiveScene()
     {
         throw new NotImplementedException();
-    }
+    }*/
 }

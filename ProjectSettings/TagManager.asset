@@ -12,6 +12,7 @@ TagManager:
   - Pawn
   - Ticket
   - twitchLeftEar
+  - Exit
   layers:
   - Default
   - TransparentFX

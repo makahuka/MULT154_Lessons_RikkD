@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Start Scene.unity
     guid: ef3f5000d84332146beeafc0236cc346
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/City.unity
     guid: 0f18d26d190d47c4284499774ceb5676
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ChocolateRiver.unity
     guid: bc7ab7cab5b1061488dd212e9a477ec8
   - enabled: 1
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestLevel.unity
     guid: 637ab9b94d66249418eba3cdbff584d4
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 1f27202f93e5cb0459b15375bbc27df9
   m_configObjects: {}
